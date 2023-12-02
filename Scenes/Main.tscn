@@ -1118,6 +1118,9 @@ stream = ExtResource("4_jijnl")
 [node name="Hit" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("5_g7w0w")
 
+[node name="ShootTimer" type="Timer" parent="Player"]
+wait_time = 0.25
+
 [node name="Bullets" type="Node2D" parent="."]
 
 [node name="ScoreLabel" type="Label" parent="."]
@@ -1154,3 +1157,4 @@ theme_override_font_sizes/font_size = 12
 text = "Highscore:"
 
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
+[connection signal="timeout" from="Player/ShootTimer" to="Player" method="_on_shoot_timer_timeout"]

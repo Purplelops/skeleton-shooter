@@ -3,6 +3,7 @@ extends Area2D
 var velocity = Vector2.ZERO
 var speed = 130
 var is_dead: bool = false
+var can_shoot: bool = true
 
 signal hit
 
@@ -18,7 +19,9 @@ func _process(delta) -> void:
 			velocity.y += speed
 		
 		# Shooting
-		if Input.is_action_just_pressed("space"):
+		if Input.is_action_pressed("space") and can_shoot:
+			can_shoot = false
+			$ShootTimer.start()
 			var bullet = bullet_scene.instantiate()
 			bullet.position = position + Vector2(10, 0)
 			$"../Bullets".add_child(bullet)
@@ -33,4 +36,7 @@ func _on_area_entered(_area):
 		hit.emit()
 		$Hit.play()
 		is_dead = true
-	
+
+
+func _on_shoot_timer_timeout():
+	can_shoot = true

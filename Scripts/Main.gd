@@ -5,6 +5,7 @@ var score: int = 0
 var highscore: int = 0
 var timer: Timer
 var is_game_over = false
+var spawns_per_second: int = 20
 
 var save_path = "user://highscore.save"
 
@@ -25,9 +26,15 @@ func _ready():
 	$HighscoreLabel.text = "Highscore: " + str(highscore)
 
 
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_just_pressed("Restart") and is_game_over: 
 		get_tree().reload_current_scene()
+	
+	# Reduce spawn time
+	if timer.wait_time < (1.0 / spawns_per_second):
+		pass
+	else:
+		timer.wait_time -= 0.005 * delta
 
 
 func spawn_enemy():
