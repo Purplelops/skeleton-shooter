@@ -39,7 +39,6 @@ func spawn_enemy():
 
 func _on_enemy_hit():
 	score += 1
-	save_score()
 	$ScoreLabel.text = "Score: " + str(score)
 	$EnemyHit.play()
 
@@ -53,6 +52,7 @@ func _on_player_hit():
 		pass
 	else:
 		highscore = score
+		save_score()
 
 	$HighscoreLabel.text = "Highscore: " + str(highscore)
 	$RestartLabel.visible = true
