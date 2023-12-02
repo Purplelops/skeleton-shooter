@@ -1,6 +1,6 @@
 extends Node2D
 
-var enemy_scene: PackedScene = load("res://Enemy.tscn")
+var enemy_scene: PackedScene = load("res://Scenes/Enemy.tscn")
 var score: int = 0
 var highscore: int = 0
 var timer: Timer

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp2vvwwub5q53"
-path="res://.godot/imported/skeleton_shooter_icon.png-5669f839400256656740a5fe34b67b87.ctex"
+path="res://.godot/imported/skeleton_shooter_icon.png-a8fceced8c8d678fc13bcb04354a80b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://skeleton_shooter_icon.png"
-dest_files=["res://.godot/imported/skeleton_shooter_icon.png-5669f839400256656740a5fe34b67b87.ctex"]
+source_file="res://Sprites/skeleton_shooter_icon.png"
+dest_files=["res://.godot/imported/skeleton_shooter_icon.png-a8fceced8c8d678fc13bcb04354a80b2.ctex"]
 
 [params]
 

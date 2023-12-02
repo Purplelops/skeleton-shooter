@@ -1,17 +1,17 @@
 [gd_scene load_steps=10 format=3 uid="uid://cew5f41avtl00"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_adks8"]
-[ext_resource type="Texture2D" uid="uid://dsmvyyj8hqnmv" path="res://colored-transparent_packed.png" id="1_ghfwj"]
-[ext_resource type="Script" path="res://Player.gd" id="1_rhxwh"]
-[ext_resource type="AudioStream" uid="uid://btpp3tg3mr6em" path="res://Shoot.wav" id="4_lvete"]
-[ext_resource type="AudioStream" uid="uid://ca5vtpteixnlj" path="res://EnemyHit.wav" id="5_72yxf"]
-[ext_resource type="AudioStream" uid="uid://ddyrfygwn8bcm" path="res://PlayerHit.wav" id="5_bunq3"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_q52lm"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_6oetx"]
+[ext_resource type="Texture2D" uid="uid://dsmvyyj8hqnmv" path="res://Sprites/colored-transparent_packed.png" id="3_864ty"]
+[ext_resource type="AudioStream" uid="uid://btpp3tg3mr6em" path="res://Sounds/Shoot.wav" id="4_jijnl"]
+[ext_resource type="AudioStream" uid="uid://ddyrfygwn8bcm" path="res://Sounds/PlayerHit.wav" id="5_g7w0w"]
+[ext_resource type="AudioStream" uid="uid://ca5vtpteixnlj" path="res://Sounds/EnemyHit.wav" id="6_2o165"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iupc3"]
 radius = 5.38516
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3k6lo"]
-texture = ExtResource("1_ghfwj")
+texture = ExtResource("3_864ty")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -1094,11 +1094,11 @@ texture = ExtResource("1_ghfwj")
 sources/1 = SubResource("TileSetAtlasSource_3k6lo")
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_adks8")
+script = ExtResource("1_q52lm")
 
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(23, 83)
-script = ExtResource("1_rhxwh")
+script = ExtResource("2_6oetx")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -1108,15 +1108,15 @@ shape = SubResource("CircleShape2D_iupc3")
 [node name="Colored-transparentPacked" type="Sprite2D" parent="Player"]
 texture_filter = 1
 position = Vector2(0, -0.5)
-texture = ExtResource("1_ghfwj")
+texture = ExtResource("3_864ty")
 region_enabled = true
 region_rect = Rect2(290, 117, 12, 11)
 
 [node name="Shooting" type="AudioStreamPlayer" parent="Player"]
-stream = ExtResource("4_lvete")
+stream = ExtResource("4_jijnl")
 
 [node name="Hit" type="AudioStreamPlayer" parent="Player"]
-stream = ExtResource("5_bunq3")
+stream = ExtResource("5_g7w0w")
 
 [node name="Bullets" type="Node2D" parent="."]
 
@@ -1138,7 +1138,7 @@ offset_bottom = 95.0
 text = "Press \"R\" to restart"
 
 [node name="EnemyHit" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_72yxf")
+stream = ExtResource("6_2o165")
 
 [node name="Map" type="Node2D" parent="."]
 

@@ -6,7 +6,7 @@ var is_dead: bool = false
 
 signal hit
 
-var bullet_scene: PackedScene = load("res://bullet.tscn")
+var bullet_scene: PackedScene = load("res://Scenes/bullet.tscn")
 
 func _process(delta) -> void:
 	velocity = Vector2.ZERO
@@ -28,7 +28,9 @@ func _process(delta) -> void:
 
 
 func _on_area_entered(_area):
-	hide()
-	hit.emit()
-	$Hit.play()
-	is_dead = true
+	if not is_dead:
+		hide()
+		hit.emit()
+		$Hit.play()
+		is_dead = true
+	
